@@ -48,6 +48,10 @@ namespace UnweWeatherApp
     {
         [JsonProperty("temp")]
         public double Temperature { get; set; }
+
+        [JsonProperty("feels_like")]
+        public double Feels_like { get; set; }
+
         [JsonProperty("pressure")]
         public long Pressure { get; set; }
         [JsonProperty("humidity")]
