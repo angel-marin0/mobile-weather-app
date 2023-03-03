@@ -34,8 +34,17 @@ namespace UnweWeatherApp
                 WeatherData weatherData = await _WeatherWeatherService.GetWeatherData(
                     GenerateRequestUri(Constants.OpenWeatherMapEndpoint));
                 BindingContext = weatherData;
+
+                ConstructImageurl(weatherData.Weather[0].Icon);
             }
 
+        }
+
+        private void ConstructImageurl(string iconCode)
+        {
+            string imageUrl = $"https://openweathermap.org/img/wn/{iconCode}@2x.png";
+            imageIcon.Source = imageUrl;
+            imageIcon.Focus();
         }
     }
 }

@@ -48,9 +48,13 @@
                 <Label Text="{Binding Wind.Speed}" Style="{StaticResource labelResultStyle}" />
                 <Label Text="Humidity" Style="{StaticResource labelStyle}" />
                 <Label Text="{Binding Main.Humidity}" Style="{StaticResource labelResultStyle}" />
-                <Image x:Name="backgroundImage" Source="{Binding ConstructImageurl} AbsoluteLayout.LayoutBounds="0,0,1,1"   AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"/>
-                <Label Text="Visibility" Style="{StaticResource labelStyle}" />
-                <Label Text="{Binding Weather[0].Visibility}" Style="{StaticResource labelResultStyle}" />
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Visibility" Style="{StaticResource labelStyle}" />
+                    <Label Text="{Binding Weather[0].Visibility}" Style="{StaticResource labelResultStyle}" />
+                    <Image x:Name="imageIcon"/>
+                </StackLayout>
+
                 <Label Text="Time of Sunrise" Style="{StaticResource labelStyle}" />
                 <Label Text="{Binding Sys.Sunrise, Converter={StaticResource longToDateTimeConverter}}" Style="{StaticResource labelResultStyle}" />
                 <Label Text="Time of Sunset" Style="{StaticResource labelStyle}" />
