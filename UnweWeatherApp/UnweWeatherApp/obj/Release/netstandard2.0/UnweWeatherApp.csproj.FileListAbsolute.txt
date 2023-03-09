@@ -1,0 +1,15 @@
+C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\bin\Release\netstandard2.0\UnweWeatherApp.deps.json
+C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\bin\Release\netstandard2.0\UnweWeatherApp.dll
+C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\bin\Release\netstandard2.0\UnweWeatherApp.pdb
+C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\obj\Release\netstandard2.0\UnweWeatherApp.csproj.AssemblyReference.cache
+C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\obj\Release\netstandard2.0\UnweWeatherApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\obj\Release\netstandard2.0\App.xaml.g.cs
+C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\obj\Release\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\obj\Release\netstandard2.0\UnweWeatherApp.AssemblyInfoInputs.cache
+C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\obj\Release\netstandard2.0\UnweWeatherApp.AssemblyInfo.cs
+C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\obj\Release\netstandard2.0\UnweWeatherApp.csproj.CoreCompileInputs.cache
+C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\obj\Release\netstandard2.0\XamlC.stamp
+C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\obj\Release\netstandard2.0\UnweWeatherApp.dll
+C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\obj\Release\netstandard2.0\refint\UnweWeatherApp.dll
+C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\obj\Release\netstandard2.0\UnweWeatherApp.pdb
+C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\obj\Release\netstandard2.0\ref\UnweWeatherApp.dll
