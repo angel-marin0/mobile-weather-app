@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using UnweWeatherApp.Data;
 using UnweWeatherApp.Model;
 
 namespace UnweWeatherApp.Service
@@ -18,6 +19,7 @@ namespace UnweWeatherApp.Service
         public async Task<WeatherData> GetWeatherData(string query)
         {
             WeatherData weatherData = null;
+
 
             try
             {
@@ -43,5 +45,15 @@ namespace UnweWeatherApp.Service
             return result;
         }
 
+        public async Task<int> CacheWeather(WeatherModel weatherModel)
+        {
+            int result = await App.WeatherRepository.Save(weatherModel);
+            return result;
+        }
+
+        public void Delete()
+        {
+            App.WeatherRepository.RemoveOlderEntries();
+        }
     }
 }

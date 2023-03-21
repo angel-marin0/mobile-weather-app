@@ -59,11 +59,13 @@
                 <Label Text="{Binding Sys.Sunrise, Converter={StaticResource longToDateTimeConverter}}" Style="{StaticResource labelResultStyle}" />
                 <Label Text="Time of Sunset" Style="{StaticResource labelStyle}" />
                 <Label Text="{Binding Sys.Sunset, Converter={StaticResource longToDateTimeConverter}}" Style="{StaticResource labelResultStyle}" />
-                <Label x:Name="cachedResultsLabel" TextColor="Red" FontSize="Medium"/>
             </StackLayout>
         </ScrollView>
 
-
+        <StackLayout Orientation="Horizontal" VerticalOptions="End">
+            <Label x:Name="cachedResultsLabel" TextColor="Red" FontSize="Small"/>
+        </StackLayout>
+        
     </StackLayout>
 
 </ContentPage>

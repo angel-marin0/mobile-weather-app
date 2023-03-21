@@ -44,5 +44,23 @@ namespace UnweWeatherApp.Repository
                             .OrderByDescending(wm => wm.Time)
                             .FirstOrDefaultAsync();
         }
+
+        public async void RemoveOlderEntries()
+        {
+            TimeSpan timeSpan = TimeSpan.FromMinutes(1);
+            DateTime target = DateTime.Now.Subtract(timeSpan);
+
+
+            var weatherModelstoDelete = await database.Table<WeatherModel>()
+                .Where(wm => wm.Time <= target)
+                .ToListAsync();
+
+            //return await database.DeleteAsync(weatherModelstoDelete);
+
+            foreach (var x in weatherModelstoDelete)
+            {
+                await database.DeleteAsync(x);
+            }
+        }
     }
 }

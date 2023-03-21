@@ -6,6 +6,7 @@ using SQLite;
 
 namespace UnweWeatherApp.Model
 {
+    [Table("WeatherModel")]
     public class WeatherModel
     {
         [PrimaryKey, AutoIncrement]

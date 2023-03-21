@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 using UnweWeatherApp.Repository;
 using UnweWeatherApp.Util;
 using Xamarin.Forms;
@@ -17,7 +18,7 @@ namespace UnweWeatherApp
                 if (weatherRepository == null)
                 {
                     weatherRepository = new WeatherRepository(
-                        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), 
+                        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                         "WeatherRepository.db3"));
                 }
                 return weatherRepository;
@@ -33,6 +34,7 @@ namespace UnweWeatherApp
 
         protected override void OnStart()
         {
+            
         }
 
         protected override void OnSleep()

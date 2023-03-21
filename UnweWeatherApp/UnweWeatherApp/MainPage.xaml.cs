@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using UnweWeatherApp.Data;
 using UnweWeatherApp.Model;
+using UnweWeatherApp.Repository;
 using UnweWeatherApp.Service;
 using UnweWeatherApp.Util;
 using Xamarin.Forms;
@@ -14,6 +17,7 @@ namespace UnweWeatherApp
     public partial class MainPage : ContentPage
     {
         private OpenWeatherService _WeatherService;
+        static Timer timer;
         public MainPage()
         {
             InitializeComponent();
@@ -26,6 +30,8 @@ namespace UnweWeatherApp
             {
                 searchLabel.Text = "Running on iOS";
             }
+
+            ClearCacheJob();
         }
 
 
@@ -46,8 +52,8 @@ namespace UnweWeatherApp
             {
                 imageIcon.IsVisible = false;
                 cachedResultsLabel.IsVisible = false;
-
-                WeatherModel cachedResult = await _WeatherService.GetWeatherByLocation(_cityEntry.Text);
+               
+                WeatherModel cachedResult = await _WeatherService.GetWeatherByLocation(_cityEntry.Text.Trim());
 
 
                 if (cachedResult != null)
@@ -57,7 +63,7 @@ namespace UnweWeatherApp
                     BindingContext = weatherData;
                     ConstructImageURL(weatherData.Weather[0].Icon);
 
-                    cachedResultsLabel.Text = $"This data was cached on {cachedResult.Time} UTC";
+                    cachedResultsLabel.Text = $"*This data was cached on {cachedResult.Time} UTC";
                     cachedResultsLabel.IsVisible = true;
                 }
                 else
@@ -67,6 +73,7 @@ namespace UnweWeatherApp
                     {
                         weatherData = await _WeatherService.GetWeatherData(
                             GenerateRequestUri(Constants.OpenWeatherMapEndpoint));
+                        weatherData.Title = _cityEntry.Text;
 
                         BindingContext = weatherData;
                         ConstructImageURL(weatherData.Weather[0].Icon);
@@ -75,13 +82,13 @@ namespace UnweWeatherApp
                     }
                     catch (Exception ex)
                     {
-                        await DisplayAlert("Alert", "Not a valid location!", "OK");
+                        await DisplayAlert("Warning", "Not a valid location!", "OK");
                     }
                 }
             }
             else
             {
-                await DisplayAlert("Alert", "Please enter a location.", "OK");
+                await DisplayAlert("Warning", "Please enter a location.", "OK");
             }
 
         }
@@ -90,7 +97,7 @@ namespace UnweWeatherApp
         private void ConstructImageURL(string iconCode)
         {
             imageIcon.IsVisible = true;
-            string imageUrl = $"https://openweathermap.org/img/wn/{iconCode}@2x.png";
+            string imageUrl = $"{Constants.OpenWeatherIconBase}{iconCode}{Constants.OpenWeatherIconExtension}";
             imageIcon.Source = imageUrl;
             imageIcon.Focus();
         }
@@ -99,6 +106,17 @@ namespace UnweWeatherApp
         {
             WeatherModel entity = WeatherMapper.MapToModel(weatherData);
             await App.WeatherRepository.Save(entity);
+        }
+
+        private void ClearCacheJob()
+        {
+            var minutes = TimeSpan.FromMinutes(2);
+
+            Device.StartTimer(minutes, () => {
+
+                _WeatherService.Delete();
+                return true;
+            });
         }
     }
 }

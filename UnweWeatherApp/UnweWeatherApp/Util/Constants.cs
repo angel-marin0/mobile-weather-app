@@ -8,6 +8,9 @@ namespace UnweWeatherApp.Util
     {
         public static string OpenWeatherMapEndpoint = "https://api.openweathermap.org/data/2.5/weather";
         public static string OpenWeatherMapAPIKey = "2c24436d9d9a44bc6d9eae99d7835bb9";
+
+        public static string OpenWeatherIconBase = "https://openweathermap.org/img/wn/";
+        public static string OpenWeatherIconExtension = "@2x.png";
     }
 }
 
