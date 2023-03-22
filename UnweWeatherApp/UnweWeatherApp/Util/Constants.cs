@@ -6,7 +6,10 @@ namespace UnweWeatherApp.Util
 {
     public static class Constants
     {
-        public static string OpenWeatherMapEndpoint = "https://api.openweathermap.org/data/2.5/weather";
+        private static string BaseUrl = "https://api.openweathermap.org";
+
+        public static string OpenWeatherMapEndpoint = $"{BaseUrl}/data/2.5";
+        public static string OpenWeatherGeolocationEndpoint = $"{BaseUrl}/geo/1.0";
         public static string OpenWeatherMapAPIKey = "2c24436d9d9a44bc6d9eae99d7835bb9";
 
         public static string OpenWeatherIconBase = "https://openweathermap.org/img/wn/";

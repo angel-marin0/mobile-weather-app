@@ -13,3 +13,5 @@ C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\obj\Rel
 C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\obj\Release\netstandard2.0\refint\UnweWeatherApp.dll
 C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\obj\Release\netstandard2.0\UnweWeatherApp.pdb
 C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\obj\Release\netstandard2.0\ref\UnweWeatherApp.dll
+C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\obj\Release\netstandard2.0\Pages\CurrentWeather.xaml.g.cs
+C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp\obj\Release\netstandard2.0\Pages\Forecast.xaml.g.cs

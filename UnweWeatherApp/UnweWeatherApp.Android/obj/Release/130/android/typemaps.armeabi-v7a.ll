@@ -4849,14 +4849,24 @@ target triple = "armv7-unknown-linux-android"
 @module12_managed_to_java = internal constant [1 x %struct.TypeMapModuleEntry] [
 	; 0
 	%struct.TypeMapModuleEntry {
-		i32 33554441, ; type_token_id
-		i32 79; java_map_index
+		i32 33554434, ; type_token_id
+		i32 677; java_map_index
 	}
 ], align 4; end of 'module12_managed_to_java' array
 
 
 ; module13_managed_to_java
-@module13_managed_to_java = internal constant [3 x %struct.TypeMapModuleEntry] [
+@module13_managed_to_java = internal constant [1 x %struct.TypeMapModuleEntry] [
+	; 0
+	%struct.TypeMapModuleEntry {
+		i32 33554441, ; type_token_id
+		i32 79; java_map_index
+	}
+], align 4; end of 'module13_managed_to_java' array
+
+
+; module14_managed_to_java
+@module14_managed_to_java = internal constant [3 x %struct.TypeMapModuleEntry] [
 	; 0
 	%struct.TypeMapModuleEntry {
 		i32 33554435, ; type_token_id
@@ -4872,11 +4882,11 @@ target triple = "armv7-unknown-linux-android"
 		i32 33554438, ; type_token_id
 		i32 707; java_map_index
 	}
-], align 4; end of 'module13_managed_to_java' array
+], align 4; end of 'module14_managed_to_java' array
 
 
-; module13_managed_to_java_duplicates
-@module13_managed_to_java_duplicates = internal constant [2 x %struct.TypeMapModuleEntry] [
+; module14_managed_to_java_duplicates
+@module14_managed_to_java_duplicates = internal constant [2 x %struct.TypeMapModuleEntry] [
 	; 0
 	%struct.TypeMapModuleEntry {
 		i32 33554436, ; type_token_id
@@ -4887,17 +4897,7 @@ target triple = "armv7-unknown-linux-android"
 		i32 33554439, ; type_token_id
 		i32 707; java_map_index
 	}
-], align 4; end of 'module13_managed_to_java_duplicates' array
-
-
-; module14_managed_to_java
-@module14_managed_to_java = internal constant [1 x %struct.TypeMapModuleEntry] [
-	; 0
-	%struct.TypeMapModuleEntry {
-		i32 33554434, ; type_token_id
-		i32 677; java_map_index
-	}
-], align 4; end of 'module14_managed_to_java' array
+], align 4; end of 'module14_managed_to_java_duplicates' array
 
 
 ; module15_managed_to_java
@@ -7092,9 +7092,9 @@ target triple = "armv7-unknown-linux-android"
 @__TypeMapModule_assembly_name.9 = internal constant [22 x i8] c"Xamarin.AndroidX.Core\00", align 1
 @__TypeMapModule_assembly_name.10 = internal constant [46 x i8] c"Xamarin.AndroidX.AppCompat.AppCompatResources\00", align 1
 @__TypeMapModule_assembly_name.11 = internal constant [41 x i8] c"Xamarin.AndroidX.Lifecycle.LiveData.Core\00", align 1
-@__TypeMapModule_assembly_name.12 = internal constant [40 x i8] c"Xamarin.AndroidX.Legacy.Support.Core.UI\00", align 1
-@__TypeMapModule_assembly_name.13 = internal constant [28 x i8] c"Xamarin.AndroidX.SavedState\00", align 1
-@__TypeMapModule_assembly_name.14 = internal constant [23 x i8] c"UnweWeatherApp.Android\00", align 1
+@__TypeMapModule_assembly_name.12 = internal constant [23 x i8] c"UnweWeatherApp.Android\00", align 1
+@__TypeMapModule_assembly_name.13 = internal constant [40 x i8] c"Xamarin.AndroidX.Legacy.Support.Core.UI\00", align 1
+@__TypeMapModule_assembly_name.14 = internal constant [28 x i8] c"Xamarin.AndroidX.SavedState\00", align 1
 @__TypeMapModule_assembly_name.15 = internal constant [32 x i8] c"Xamarin.Google.Android.Material\00", align 1
 @__TypeMapModule_assembly_name.16 = internal constant [30 x i8] c"Xamarin.AndroidX.DrawerLayout\00", align 1
 @__TypeMapModule_assembly_name.17 = internal constant [30 x i8] c"Xamarin.AndroidX.RecyclerView\00", align 1
@@ -7254,36 +7254,36 @@ target triple = "armv7-unknown-linux-android"
 	}, 
 	; 12
 	%struct.TypeMapModule {
-		[16 x i8] c"\8A\0Bs\97\93\11rE\9D8I\FE\19\08>\CE", ; module_uuid: 97730b8a-1193-4572-9d38-49fe19083ece
+		[16 x i8] c"\8A\0A\BD#s\A8\0CG\BE`q\D8\DD\B6{\87", ; module_uuid: 23bd0a8a-a873-470c-be60-71d8ddb67b87
 		i32 1, ; entry_count
 		i32 0, ; duplicate_count
 		%struct.TypeMapModuleEntry* getelementptr inbounds ([1 x %struct.TypeMapModuleEntry], [1 x %struct.TypeMapModuleEntry]* @module12_managed_to_java, i32 0, i32 0), ; map
 		%struct.TypeMapModuleEntry* null, ; duplicate_map
-		i8* getelementptr inbounds ([40 x i8], [40 x i8]* @__TypeMapModule_assembly_name.12, i32 0, i32 0), ; assembly_name: Xamarin.AndroidX.Legacy.Support.Core.UI
+		i8* getelementptr inbounds ([23 x i8], [23 x i8]* @__TypeMapModule_assembly_name.12, i32 0, i32 0), ; assembly_name: UnweWeatherApp.Android
 		%struct.MonoImage* null, ; image
 		i32 0, ; java_name_width
 		i8* null; java_map
 	}, 
 	; 13
 	%struct.TypeMapModule {
-		[16 x i8] c"\8BZ&\99H\E4\1AF\B9l\14\B7;\C7\D3C", ; module_uuid: 99265a8b-e448-461a-b96c-14b73bc7d343
-		i32 3, ; entry_count
-		i32 2, ; duplicate_count
-		%struct.TypeMapModuleEntry* getelementptr inbounds ([3 x %struct.TypeMapModuleEntry], [3 x %struct.TypeMapModuleEntry]* @module13_managed_to_java, i32 0, i32 0), ; map
-		%struct.TypeMapModuleEntry* getelementptr inbounds ([2 x %struct.TypeMapModuleEntry], [2 x %struct.TypeMapModuleEntry]* @module13_managed_to_java_duplicates, i32 0, i32 0), ; duplicate_map
-		i8* getelementptr inbounds ([28 x i8], [28 x i8]* @__TypeMapModule_assembly_name.13, i32 0, i32 0), ; assembly_name: Xamarin.AndroidX.SavedState
+		[16 x i8] c"\8A\0Bs\97\93\11rE\9D8I\FE\19\08>\CE", ; module_uuid: 97730b8a-1193-4572-9d38-49fe19083ece
+		i32 1, ; entry_count
+		i32 0, ; duplicate_count
+		%struct.TypeMapModuleEntry* getelementptr inbounds ([1 x %struct.TypeMapModuleEntry], [1 x %struct.TypeMapModuleEntry]* @module13_managed_to_java, i32 0, i32 0), ; map
+		%struct.TypeMapModuleEntry* null, ; duplicate_map
+		i8* getelementptr inbounds ([40 x i8], [40 x i8]* @__TypeMapModule_assembly_name.13, i32 0, i32 0), ; assembly_name: Xamarin.AndroidX.Legacy.Support.Core.UI
 		%struct.MonoImage* null, ; image
 		i32 0, ; java_name_width
 		i8* null; java_map
 	}, 
 	; 14
 	%struct.TypeMapModule {
-		[16 x i8] c"\8D\9B\9C\DAW/\AEE\9B\D5\07\12\AAt\F1Y", ; module_uuid: da9c9b8d-2f57-45ae-9bd5-0712aa74f159
-		i32 1, ; entry_count
-		i32 0, ; duplicate_count
-		%struct.TypeMapModuleEntry* getelementptr inbounds ([1 x %struct.TypeMapModuleEntry], [1 x %struct.TypeMapModuleEntry]* @module14_managed_to_java, i32 0, i32 0), ; map
-		%struct.TypeMapModuleEntry* null, ; duplicate_map
-		i8* getelementptr inbounds ([23 x i8], [23 x i8]* @__TypeMapModule_assembly_name.14, i32 0, i32 0), ; assembly_name: UnweWeatherApp.Android
+		[16 x i8] c"\8BZ&\99H\E4\1AF\B9l\14\B7;\C7\D3C", ; module_uuid: 99265a8b-e448-461a-b96c-14b73bc7d343
+		i32 3, ; entry_count
+		i32 2, ; duplicate_count
+		%struct.TypeMapModuleEntry* getelementptr inbounds ([3 x %struct.TypeMapModuleEntry], [3 x %struct.TypeMapModuleEntry]* @module14_managed_to_java, i32 0, i32 0), ; map
+		%struct.TypeMapModuleEntry* getelementptr inbounds ([2 x %struct.TypeMapModuleEntry], [2 x %struct.TypeMapModuleEntry]* @module14_managed_to_java_duplicates, i32 0, i32 0), ; duplicate_map
+		i8* getelementptr inbounds ([28 x i8], [28 x i8]* @__TypeMapModule_assembly_name.14, i32 0, i32 0), ; assembly_name: Xamarin.AndroidX.SavedState
 		%struct.MonoImage* null, ; image
 		i32 0, ; java_name_width
 		i8* null; java_map
@@ -7789,9 +7789,9 @@ target triple = "armv7-unknown-linux-android"
 	}, 
 	; 62
 	%struct.TypeMapJava {
-		i32 13, ; module_index
+		i32 14, ; module_index
 		i32 33554437, ; type_token_id
-		i32 638; java_name_index
+		i32 639; java_name_index
 	}, 
 	; 63
 	%struct.TypeMapJava {
@@ -7891,9 +7891,9 @@ target triple = "armv7-unknown-linux-android"
 	}, 
 	; 79
 	%struct.TypeMapJava {
-		i32 12, ; module_index
+		i32 13, ; module_index
 		i32 33554441, ; type_token_id
-		i32 636; java_name_index
+		i32 637; java_name_index
 	}, 
 	; 80
 	%struct.TypeMapJava {
@@ -8731,9 +8731,9 @@ target triple = "armv7-unknown-linux-android"
 	}, 
 	; 219
 	%struct.TypeMapJava {
-		i32 13, ; module_index
+		i32 14, ; module_index
 		i32 0, ; type_token_id
-		i32 637; java_name_index
+		i32 638; java_name_index
 	}, 
 	; 220
 	%struct.TypeMapJava {
@@ -11479,9 +11479,9 @@ target triple = "armv7-unknown-linux-android"
 	}, 
 	; 677
 	%struct.TypeMapJava {
-		i32 14, ; module_index
+		i32 12, ; module_index
 		i32 33554434, ; type_token_id
-		i32 640; java_name_index
+		i32 636; java_name_index
 	}, 
 	; 678
 	%struct.TypeMapJava {
@@ -11659,9 +11659,9 @@ target triple = "armv7-unknown-linux-android"
 	}, 
 	; 707
 	%struct.TypeMapJava {
-		i32 13, ; module_index
+		i32 14, ; module_index
 		i32 0, ; type_token_id
-		i32 639; java_name_index
+		i32 640; java_name_index
 	}, 
 	; 708
 	%struct.TypeMapJava {
@@ -15029,11 +15029,11 @@ target triple = "armv7-unknown-linux-android"
 @__java_type_names.633 = internal constant [50 x i8] c"androidx/appcompat/content/res/AppCompatResources\00", align 1
 @__java_type_names.634 = internal constant [28 x i8] c"androidx/lifecycle/Observer\00", align 1
 @__java_type_names.635 = internal constant [28 x i8] c"androidx/lifecycle/LiveData\00", align 1
-@__java_type_names.636 = internal constant [42 x i8] c"androidx/legacy/app/ActionBarDrawerToggle\00", align 1
-@__java_type_names.637 = internal constant [44 x i8] c"androidx/savedstate/SavedStateRegistryOwner\00", align 1
-@__java_type_names.638 = internal constant [39 x i8] c"androidx/savedstate/SavedStateRegistry\00", align 1
-@__java_type_names.639 = internal constant [58 x i8] c"androidx/savedstate/SavedStateRegistry$SavedStateProvider\00", align 1
-@__java_type_names.640 = internal constant [35 x i8] c"crc64cd255c0ff61c66fd/MainActivity\00", align 1
+@__java_type_names.636 = internal constant [35 x i8] c"crc64cd255c0ff61c66fd/MainActivity\00", align 1
+@__java_type_names.637 = internal constant [42 x i8] c"androidx/legacy/app/ActionBarDrawerToggle\00", align 1
+@__java_type_names.638 = internal constant [44 x i8] c"androidx/savedstate/SavedStateRegistryOwner\00", align 1
+@__java_type_names.639 = internal constant [39 x i8] c"androidx/savedstate/SavedStateRegistry\00", align 1
+@__java_type_names.640 = internal constant [58 x i8] c"androidx/savedstate/SavedStateRegistry$SavedStateProvider\00", align 1
 @__java_type_names.641 = internal constant [53 x i8] c"com/google/android/material/resources/TextAppearance\00", align 1
 @__java_type_names.642 = internal constant [65 x i8] c"com/google/android/material/resources/TextAppearanceFontCallback\00", align 1
 @__java_type_names.643 = internal constant [60 x i8] c"com/google/android/material/bottomsheet/BottomSheetBehavior\00", align 1
@@ -16027,11 +16027,11 @@ target triple = "armv7-unknown-linux-android"
 	i8* getelementptr inbounds ([50 x i8], [50 x i8]* @__java_type_names.633, i32 0, i32 0),
 	i8* getelementptr inbounds ([28 x i8], [28 x i8]* @__java_type_names.634, i32 0, i32 0),
 	i8* getelementptr inbounds ([28 x i8], [28 x i8]* @__java_type_names.635, i32 0, i32 0),
-	i8* getelementptr inbounds ([42 x i8], [42 x i8]* @__java_type_names.636, i32 0, i32 0),
-	i8* getelementptr inbounds ([44 x i8], [44 x i8]* @__java_type_names.637, i32 0, i32 0),
-	i8* getelementptr inbounds ([39 x i8], [39 x i8]* @__java_type_names.638, i32 0, i32 0),
-	i8* getelementptr inbounds ([58 x i8], [58 x i8]* @__java_type_names.639, i32 0, i32 0),
-	i8* getelementptr inbounds ([35 x i8], [35 x i8]* @__java_type_names.640, i32 0, i32 0),
+	i8* getelementptr inbounds ([35 x i8], [35 x i8]* @__java_type_names.636, i32 0, i32 0),
+	i8* getelementptr inbounds ([42 x i8], [42 x i8]* @__java_type_names.637, i32 0, i32 0),
+	i8* getelementptr inbounds ([44 x i8], [44 x i8]* @__java_type_names.638, i32 0, i32 0),
+	i8* getelementptr inbounds ([39 x i8], [39 x i8]* @__java_type_names.639, i32 0, i32 0),
+	i8* getelementptr inbounds ([58 x i8], [58 x i8]* @__java_type_names.640, i32 0, i32 0),
 	i8* getelementptr inbounds ([53 x i8], [53 x i8]* @__java_type_names.641, i32 0, i32 0),
 	i8* getelementptr inbounds ([65 x i8], [65 x i8]* @__java_type_names.642, i32 0, i32 0),
 	i8* getelementptr inbounds ([60 x i8], [60 x i8]* @__java_type_names.643, i32 0, i32 0),
