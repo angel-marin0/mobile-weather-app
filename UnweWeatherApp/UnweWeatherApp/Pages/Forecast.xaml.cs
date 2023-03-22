@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnweWeatherApp.Data;
+using UnweWeatherApp.Model;
 using UnweWeatherApp.Service;
 using UnweWeatherApp.Util;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
@@ -16,26 +19,22 @@ namespace UnweWeatherApp.Pages
     public partial class Forecast : ContentPage
     {
         private OpenWeatherService _WeatherService;
+
+        public ObservableCollection<List> Forecasts { get; }
         public Forecast()
         {
             InitializeComponent();
 
             _WeatherService = OpenWeatherService.Instance;
 
-            if (Device.RuntimePlatform == Device.Android)
-            {
-                searchLabel.Text = "Running on Android";
-            }
-            else if (Device.RuntimePlatform == Device.iOS)
-            {
-                searchLabel.Text = "Running on iOS";
-            }
+            listView.IsVisible = false;
         }
 
         private async void GetForecastButtonClicked(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(_cityEntry.Text))
             {
+                
                 ForecastData forecastData = null;
 
                 try
@@ -44,13 +43,24 @@ namespace UnweWeatherApp.Pages
                 }
                 catch {
                     noDataLayout.IsVisible = true;
+                    listView.IsVisible = false;
                     return;
                 }
 
                 FilterForecastData(forecastData);
 
-                BindingContext = forecastData;
 
+                List<ForecastModel> models = new List<ForecastModel>();
+                foreach (var item in forecastData.List)
+                {
+                    ForecastModel forecastModel = ForecastMapper.MapToModel(item);
+                    models.Add(forecastModel);
+                }
+
+                listView.ItemsSource = models;
+                listView.IsVisible = true;
+
+                Preferences.Set("last_location_key", _cityEntry.Text);
             }
             else
             {
@@ -115,6 +125,14 @@ namespace UnweWeatherApp.Pages
             requestUri += $"&lat={lat}";
             requestUri += $"&lon={lon}";
             return requestUri;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var myValue = Preferences.Get("last_location_key", "");
+            _cityEntry.Text = myValue;
         }
     }
 }

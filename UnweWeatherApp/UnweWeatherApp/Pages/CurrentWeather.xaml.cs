@@ -7,6 +7,7 @@ using UnweWeatherApp.Data;
 using UnweWeatherApp.Model;
 using UnweWeatherApp.Service;
 using UnweWeatherApp.Util;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -76,6 +77,8 @@ namespace UnweWeatherApp.Pages
                         await DisplayAlert("Warning", "Not a valid location!", "OK");
                     }
                 }
+
+                Preferences.Set("last_location_key", _cityEntry.Text);
             }
             else
             {
@@ -111,6 +114,14 @@ namespace UnweWeatherApp.Pages
                 _WeatherService.Delete();
                 return true;
             });
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var myValue = Preferences.Get("last_location_key", "");
+            _cityEntry.Text = myValue;
         }
     }
 }
