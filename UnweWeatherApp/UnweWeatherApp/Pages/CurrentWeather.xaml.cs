@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,10 +20,36 @@ namespace UnweWeatherApp.Pages
         public CurrentWeather()
         {
             InitializeComponent();
+            
 
             _WeatherService = OpenWeatherService.Instance;
 
+
             ClearCacheJob();
+        }
+
+        protected override async void OnAppearing()
+        {
+
+            var location = await Geolocation.GetLocationAsync();
+            WeatherData weatherData = null;
+
+            if (location != null)
+            {
+                weatherData = await _WeatherService.GetWeatherData(
+                            GenerateRequestUriGeo(location.Latitude.ToString(), location.Longitude.ToString()));
+
+                BindingContext = weatherData;
+                ConstructImageURL(weatherData.Weather[0].Icon);
+                _cityEntry.Text = weatherData.Title;
+
+                CacheResult(weatherData);
+            }
+            else
+            {
+                await DisplayAlert("Warning", "Location not provided", "OK");
+            }
+
         }
 
 
@@ -116,12 +143,15 @@ namespace UnweWeatherApp.Pages
             });
         }
 
-        protected override void OnAppearing()
+        private string GenerateRequestUriGeo(string lat, string lon)
         {
-            base.OnAppearing();
+            string requestUri = Constants.OpenWeatherMapEndpoint;
+            requestUri += "/weather";
+            requestUri += $"?appid={Constants.OpenWeatherMapAPIKey}";
+            requestUri += $"&lat={lat}";
+            requestUri += $"&lon={lon}";
 
-            var myValue = Preferences.Get("last_location_key", "");
-            _cityEntry.Text = myValue;
+            return requestUri;
         }
     }
 }

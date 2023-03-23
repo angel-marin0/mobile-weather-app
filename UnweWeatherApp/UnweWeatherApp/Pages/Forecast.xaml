@@ -38,13 +38,53 @@
                 <Button Grid.Row="1" Grid.Column="2" Text="Show Weather" BorderWidth="1" BorderColor="White" BackgroundColor="White" TextColor="Black" Clicked="GetForecastButtonClicked" />
             </Grid>
 
-            <ListView x:Name="listView" SeparatorColor="Gray">
+            <ListView x:Name="listView"
+                  Grid.ColumnSpan="2"
+                  SeparatorColor="Red"
+                  
+                  SeparatorVisibility="None"
+                  HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding MinTemperature}" Detail="{Binding MaxTemperature}"/>
+                        <ViewCell>
+                            <Frame
+                            InputTransparent="True"
+                            Margin="10,5" Padding="0"
+                            BackgroundColor="White" CornerRadius="10"
+                            BorderColor="#A0362D"
+                            HeightRequest="125" IsClippedToBounds="True"
+                            Visual="Material">
+                                <Grid Padding="0" ColumnSpacing="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="125" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <Image Aspect="AspectFill" Source="{Binding IconUrl}" />
+                                    
+                                    <StackLayout
+                                    HorizontalOptions="StartAndExpand"
+                                    Grid.Column="1" Padding="5"
+                                    VerticalOptions="Center"
+                                        Spacing="0">
+                                        <Label FontSize="Medium" FontAttributes="Bold" TextColor="#A0362D" Text="{Binding DayOfWeek}" />
+                                        <Label FontSize="Medium" Text="{Binding Date}" />
+                                    </StackLayout>
+                                    
+                                    <StackLayout
+                                    Grid.Column="2" Padding="5"
+                                    VerticalOptions="Center">
+                                        <Label HorizontalOptions="Center" FontSize="Large" Text="{Binding Temperature}" />
+                                        <Label FontSize="Micro" Text="{Binding MinTemperature}" />
+                                        <Label FontSize="Micro" Text="{Binding MaxTemperature}" />
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
 
             <RelativeLayout x:Name="noDataLayout" Padding="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="true">
                 <StackLayout>

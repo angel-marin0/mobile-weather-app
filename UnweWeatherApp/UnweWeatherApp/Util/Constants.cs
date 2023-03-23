@@ -14,6 +14,8 @@ namespace UnweWeatherApp.Util
 
         public static string OpenWeatherIconBase = "https://openweathermap.org/img/wn/";
         public static string OpenWeatherIconExtension = "@2x.png";
+
+        public static double KelvinFactor = 273.15;
     }
 }
 

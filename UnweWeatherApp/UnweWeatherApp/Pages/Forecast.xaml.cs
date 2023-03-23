@@ -34,7 +34,6 @@ namespace UnweWeatherApp.Pages
         {
             if (!string.IsNullOrWhiteSpace(_cityEntry.Text))
             {
-                
                 ForecastData forecastData = null;
 
                 try
@@ -59,6 +58,7 @@ namespace UnweWeatherApp.Pages
 
                 listView.ItemsSource = models;
                 listView.IsVisible = true;
+
 
                 Preferences.Set("last_location_key", _cityEntry.Text);
             }

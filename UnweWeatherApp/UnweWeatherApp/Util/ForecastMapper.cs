@@ -14,15 +14,15 @@ namespace UnweWeatherApp.Util
         public static ForecastModel MapToModel (List forecastData)
         {
             ForecastModel model = new ForecastModel();
-            model.Temperature = forecastData.Main.Temperature.ToString();
-            model.MinTemperature = forecastData.Main.TempMin.ToString();
-            model.MaxTemperature = forecastData.Main.TempMax.ToString();
+            model.Temperature = Math.Ceiling(forecastData.Main.Temperature - Constants.KelvinFactor).ToString() + "°";
+            model.MinTemperature = "Minimum: " + Math.Ceiling(forecastData.Main.TempMin - Constants.KelvinFactor).ToString() + "°";
+            model.MaxTemperature = "Maximum: " + Math.Ceiling(forecastData.Main.TempMax - Constants.KelvinFactor).ToString() + "°";
             model.IconUrl = $"{Constants.OpenWeatherIconBase}{forecastData.Weather[0].Icon}{Constants.OpenWeatherIconExtension}";
 
-            DateTime date = DateTime.ParseExact(forecastData.Date, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+            DateTime date = DateTime.ParseExact(forecastData.Date, "yyyy-MM-dd HH:mm:ss", new CultureInfo("en-US"));
 
-            model.DayOfWeek = date.ToString("dddd");
-            model.Date = date.ToString("d") + "/" + date.ToString("M");
+            model.DayOfWeek = date.ToString("dddd", new CultureInfo("en-gb"));
+            model.Date = date.ToString("m", new CultureInfo("en-gb"));
 
             return model;
         }
