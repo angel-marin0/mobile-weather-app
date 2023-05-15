@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +10,7 @@ using UnweWeatherApp.Data;
 using UnweWeatherApp.Model;
 using UnweWeatherApp.Service;
 using UnweWeatherApp.Util;
+using UnweWeatherApp.ViewModel;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
@@ -19,6 +22,7 @@ namespace UnweWeatherApp.Pages
     public partial class Forecast : ContentPage
     {
         private OpenWeatherService _WeatherService;
+        private GoogleService GoogleService;
 
         public ObservableCollection<List> Forecasts { get; }
         public Forecast()
@@ -26,6 +30,7 @@ namespace UnweWeatherApp.Pages
             InitializeComponent();
 
             _WeatherService = OpenWeatherService.Instance;
+            GoogleService = GoogleService.Instance;
 
             listView.IsVisible = false;
         }
@@ -36,7 +41,7 @@ namespace UnweWeatherApp.Pages
             {
                 if (picker.SelectedIndex == -1)
                 {
-                    await DisplayAlert("Warning", "Please select a time.", "OK");
+                    await DisplayAlert("Warning", "Please select an hour.", "OK");
                     return;
                 }
 
@@ -158,6 +163,31 @@ namespace UnweWeatherApp.Pages
 
             var myValue = Preferences.Get("last_location_key", "");
             _cityEntry.Text = myValue;
+        }
+
+        async private void ViewCell_Tapped(object sender, EventArgs e)
+        {
+            
+        }
+
+        private async Task<byte[]> ConstructLocationImageAsync()
+        {
+            string photoReference = await GetPhotoReferenceAsync();
+            byte[] imageData = await GoogleService.GetPhoto($"{Constants.GoogleBaseUrl}{Constants.Photo}{photoReference}{Constants.GoogleAPIKey}");
+
+            return imageData;
+        }
+
+        private async Task<string> GetPhotoReferenceAsync()
+        {
+            string query = $"{Constants.GoogleBaseUrl}{Constants.FindPlaceUrl}{_cityEntry.Text}{Constants.GetPhotoReferenceUrl}{Constants.GoogleAPIKey}";
+            GoogleFindPlaceData data = await GoogleService.GetPhotoReference(query);
+            return data.candidates[0].photos[0].PhotoReference;
+        }
+
+        private async void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            
         }
     }
 }

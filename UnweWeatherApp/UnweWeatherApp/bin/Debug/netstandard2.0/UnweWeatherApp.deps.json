@@ -11,6 +11,7 @@
         "dependencies": {
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "13.0.2",
+          "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196",
           "sqlite-net-pcl": "1.8.116"
@@ -114,6 +115,17 @@
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {
             "assemblyVersion": "4.0.4.1",
             "fileVersion": "4.6.26919.2"
+          }
+        }
+      },
+      "Xam.Plugins.Forms.ImageCircle/3.0.0.5": {
+        "dependencies": {
+          "Xamarin.Forms": "5.0.0.2196"
+        },
+        "runtime": {
+          "lib/netstandard2.0/ImageCircle.Forms.Plugin.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -235,6 +247,13 @@
       "sha512": "sha512-wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
       "path": "system.runtime.compilerservices.unsafe/4.5.2",
       "hashPath": "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+    },
+    "Xam.Plugins.Forms.ImageCircle/3.0.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-59HyuAaUzuloQmu/PVCDCJQMRuuhqmIpCQ+d5hH5Qp8AZsa/vDi5ulrXDKRMZSZt/xbXsyZV+aZ/W/SZaYt2Mg==",
+      "path": "xam.plugins.forms.imagecircle/3.0.0.5",
+      "hashPath": "xam.plugins.forms.imagecircle.3.0.0.5.nupkg.sha512"
     },
     "Xamarin.Essentials/1.7.0": {
       "type": "package",

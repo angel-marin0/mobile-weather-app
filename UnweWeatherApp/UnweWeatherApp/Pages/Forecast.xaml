@@ -60,10 +60,11 @@
                       HeightRequest="1"
                   
                   SeparatorVisibility="None"
-                  HasUnevenRows="True">
+                  HasUnevenRows="True"
+                      ItemSelected="listView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
+                        <ViewCell Tapped="ViewCell_Tapped">
                             <Frame x:Name="listviewFrame"
                             InputTransparent="True"
                             Margin="10,5" Padding="0"

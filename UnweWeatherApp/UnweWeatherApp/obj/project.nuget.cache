@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lhYS7zZbs7E38owuluWdpTLxN43mGWONXJ6mrwWsAI1dHFHoOYmVVuh4k9/iUSjtGFiS/3gb43p159dty8gwUg==",
+  "dgSpecHash": "+UqdEiz5qW/17sJMypjk3gWO9Kbx2RUWaAA7pbPs5qOHQdSwN5LMRL1FJwgB/ayWMagoZ0mWXykMdplFFvR8NQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\zoroa\\source\\repos\\UnweWeatherApp\\UnweWeatherApp\\UnweWeatherApp\\UnweWeatherApp.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,7 @@
     "C:\\Users\\zoroa\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\zoroa\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\zoroa\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\zoroa\\.nuget\\packages\\xam.plugins.forms.imagecircle\\3.0.0.5\\xam.plugins.forms.imagecircle.3.0.0.5.nupkg.sha512",
     "C:\\Users\\zoroa\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
     "C:\\Users\\zoroa\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
   ],
