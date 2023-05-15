@@ -642,3 +642,4 @@ C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp.Android
 C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp.Android\obj\Debug\130\android\assets\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp.Android\obj\Debug\130\res\drawable\forecast.png
 C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp.Android\obj\Debug\130\res\drawable\magnifying.png
+C:\Users\zoroa\source\repos\UnweWeatherApp\UnweWeatherApp\UnweWeatherApp.Android\obj\Debug\130\res\drawable\settings.png

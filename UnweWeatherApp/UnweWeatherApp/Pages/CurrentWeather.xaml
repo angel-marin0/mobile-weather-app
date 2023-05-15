@@ -31,10 +31,10 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <Label x:Name="searchLabel" Text="Search by City" Grid.ColumnSpan="3" HorizontalOptions="Center" TextColor="White" FontAttributes="Bold" FontSize="Medium" />
+                <Label x:Name="searchLabel" Text="Current Weather" Grid.ColumnSpan="3" HorizontalOptions="Center" TextColor="White" FontAttributes="Bold" FontSize="Medium" />
                 <Label Text="City:" Grid.Row="1" VerticalOptions="Center" Style="{StaticResource labelStyle}" TextColor="#C0C0C0" />
-                <Entry x:Name="_cityEntry" Grid.Row="1" Grid.Column="1" Margin="5,0" VerticalOptions="Center" BackgroundColor="White" TextColor="Black" Text="Sofia" />
-                <Button Grid.Row="1" Grid.Column="2" Text="Show Weather" BorderWidth="1" BorderColor="White" BackgroundColor="White" TextColor="Black" Clicked="OnGetWeatherButtonClicked" />
+                <Entry x:Name="_cityEntry" ClearButtonVisibility="WhileEditing" Grid.Row="1" Grid.Column="1" Margin="5,0" VerticalOptions="Center" BackgroundColor="White" TextColor="Black" Text="Sofia" />
+                <Button Grid.Row="1" Grid.Column="2" Text="Search" BorderWidth="1" BorderColor="White" BackgroundColor="White" TextColor="Black" Clicked="OnGetWeatherButtonClicked" />
             </Grid>
 
             <ScrollView>

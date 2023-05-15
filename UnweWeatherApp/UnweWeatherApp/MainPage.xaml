@@ -14,5 +14,6 @@
 
     <local:CurrentWeather Title="Current" IconImageSource="magnifying.png"/>
     <local:Forecast Title="Forecast" IconImageSource="forecast.png"/>
+    <local:Settings Title="Settings" IconImageSource="settings.png"/>
 
 </TabbedPage>

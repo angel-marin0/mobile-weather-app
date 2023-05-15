@@ -33,21 +33,36 @@ namespace UnweWeatherApp.Pages
 
             var location = await Geolocation.GetLocationAsync();
             WeatherData weatherData = null;
+            WeatherModel cachedResult = null;
+            bool areGeoReportsEnabled = (bool)Application.Current.Properties["Auto_Reports"];
 
-            if (location != null)
+            if (location != null && areGeoReportsEnabled)
             {
-                weatherData = await _WeatherService.GetWeatherData(
-                            GenerateRequestUriGeo(location.Latitude.ToString(), location.Longitude.ToString()));
+                string loc = GenerateRequestUriGeo(location.Latitude.ToString(), location.Longitude.ToString()).Trim();
+                cachedResult = await _WeatherService.GetWeatherByLocation(loc);
 
-                BindingContext = weatherData;
-                ConstructImageURL(weatherData.Weather[0].Icon);
-                _cityEntry.Text = weatherData.Title;
+                if (cachedResult != null)
+                {
+                    BindingContext = weatherData;
+                    ConstructImageURL(weatherData.Weather[0].Icon);
+                    _cityEntry.Text = weatherData.Title;
+                    cachedResultsLabel.IsVisible = true;
+                    cachedResultsLabel.Text = $"*This data was cached on {cachedResult.Time} UTC";
+                } else {
+                    weatherData = await _WeatherService.GetWeatherData(loc);
 
-                CacheResult(weatherData);
+                    BindingContext = weatherData;
+                    ConstructImageURL(weatherData.Weather[0].Icon);
+                    _cityEntry.Text = weatherData.Title;
+                    cachedResultsLabel.IsVisible = false;
+
+                    CacheResult(weatherData);
+                }
+
             }
             else
             {
-                await DisplayAlert("Warning", "Location not provided", "OK");
+                return;
             }
 
         }

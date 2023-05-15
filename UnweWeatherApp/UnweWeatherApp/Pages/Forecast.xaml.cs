@@ -34,6 +34,21 @@ namespace UnweWeatherApp.Pages
         {
             if (!string.IsNullOrWhiteSpace(_cityEntry.Text))
             {
+                if (picker.SelectedIndex == -1)
+                {
+                    await DisplayAlert("Warning", "Please select a time.", "OK");
+                    return;
+                }
+
+
+                listView.ItemsSource = null;
+                listView.HeightRequest = 0;
+                listView.IsVisible = false;
+                listView.IsEnabled = false;
+                indic.IsRunning = true;
+                indic.IsVisible = true;
+                indic.HeightRequest = 60;
+
                 ForecastData forecastData = null;
 
                 try
@@ -43,6 +58,11 @@ namespace UnweWeatherApp.Pages
                 catch {
                     noDataLayout.IsVisible = true;
                     listView.IsVisible = false;
+                    indic.IsRunning = false;
+                    indic.IsVisible = false;
+                    indic.HeightRequest = 0;
+                    listView.IsVisible = false;
+                listView.IsEnabled = false; 
                     return;
                 }
 
@@ -58,7 +78,11 @@ namespace UnweWeatherApp.Pages
 
                 listView.ItemsSource = models;
                 listView.IsVisible = true;
-
+                indic.IsRunning = false;
+                indic.IsVisible = false;
+                indic.HeightRequest = 0;
+                listView.IsVisible = true;
+                listView.IsEnabled = true;
 
                 Preferences.Set("last_location_key", _cityEntry.Text);
             }
@@ -103,7 +127,8 @@ namespace UnweWeatherApp.Pages
         {
             List[] list = forecastData.List;
 
-            forecastData.List = list.Where(item => DateTime.Parse(item.Date).Hour == 12).ToArray();
+            int selectedHour = picker.SelectedIndex * 3; 
+            forecastData.List = list.Where(item => DateTime.Parse(item.Date).Hour == selectedHour).ToArray();
         }
 
         string GenerateGeolocationRequestUri(string endpoint)

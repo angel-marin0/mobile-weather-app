@@ -3,6 +3,7 @@ using System.IO;
 using System.Threading;
 using UnweWeatherApp.Repository;
 using UnweWeatherApp.Util;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -30,6 +31,16 @@ namespace UnweWeatherApp
             InitializeComponent();
 
             MainPage = new MainPage();
+
+            try {
+                bool reportsToggle = (bool)Application.Current.Properties["Auto_Reports"];
+
+                Properties["Auto_Reports"] = reportsToggle;
+            } catch (Exception ex)
+            {
+                Properties["Auto_Reports"] = true;
+            }
+            
         }
 
         protected override void OnStart()
